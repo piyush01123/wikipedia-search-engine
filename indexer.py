@@ -261,10 +261,11 @@ def main():
 
 	write_into_temp_files()
 
-	print("File COunt:"+str(file_count))
+	print("File Count:"+str(file_count))
 
 	with open('./data/file_count.txt','w') as f:
 		f.write(str(file_count))
+
 
 if __name__ == '__main__':
 	main()

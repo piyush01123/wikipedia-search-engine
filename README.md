@@ -1,5 +1,6 @@
 # Wikipedia Search Engine
 Search Engine for Wikipedia dump (~75 GB).
+
 *Search time <5s tested on Ubuntu 18 with 8 GB RAM and Intel i5 processor*
 
 ## How to run?
@@ -47,7 +48,7 @@ A file named `data/title.txt` will also get created. It will have data in the fo
 ```
 python merger.py
 ```
-This will merge the posting lists into a compact form which is faster for search. Effectively we want all data for one word at one place. So that is exactly what we we generate using this merger.
+This will merge the posting lists into a compact form which is faster for search. Effectively we want all data for one word at one place. So that is exactly what we generate during this step.
 
 This will generate files named `data/t0.txt`, `data/t1.txt` and so on. These are the compact listings of title field. Similarly for body field we will have files like `data/b0.txt`, `data/b1.txt` and so on. Similarly we will have for other fields as well.
 Each line in these files represents all occurrences of a specific word in the corresponding field.
@@ -63,7 +64,7 @@ freq_t_A: Frequency of word in title of doc ID A
 freq_t_B: Frequency of word in title of doc ID B
 freq_t_C: Frequency of word in title of doc ID C
 ```
-Similarly, we will have files for other field as well.
+Similarly, we will have files for other fields as well.
 
 Most importantly, each word is mentioned only once in these merged files (hence works like an index). So, given a word, we can simply look at the appropriate line to get the entire posting list for that word. This is what makes the search so fast. Also the words are sorted alphabetically, hence binary search can be used. Moreover, we created `vocab.txt` for sorted vocabulary and offset files to quickly get to the correct line number.
 
@@ -101,7 +102,7 @@ Category: 0.1
 Reference: 0.05
 External Links: 0.05
 ```
-Finally we have scores in the form `Doc ID: score`. This dictionary is sorted based on value and top 5 Doc IDs are returned along with their titles.
+Finally for each document we obtain the weighted sum score in the form `Doc ID: score`. This dictionary is sorted based on value and top 5 Doc IDs are returned along with their titles.
 
 
 ### Quit Search Engine

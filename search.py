@@ -8,6 +8,7 @@ from collections import defaultdict,Counter
 import operator
 from nltk.stem import SnowballStemmer
 
+
 def findFileNo(low, high, offset, word, file, typ):
 	ret=[]
 	retv=-1
@@ -127,7 +128,7 @@ def main():
 		start_time=time.time()
 		query=query.lower()
 		query=query.strip()
-		if query=='exit()':
+		if query=='exit() or quit()':
 			break
 		temp=query.split(':')
 		if temp[0] in key_words:
@@ -137,7 +138,7 @@ def main():
 		if not query_type:
 			tokens=pre_processing(query)
 			results, docFreq = query_func(tokens,fvocab,0,['t', 'b', 'i', 'c', 'r', 'l'])
-			results = rank(results,docFreq,nfiles,0)			
+			results = rank(results,docFreq,nfiles,0)
 		else:
 			tempFields = list()
 			tokens = list()
@@ -180,6 +181,7 @@ def main():
 			print("NO RELEVANT RESULTS FOUND!!!")
 		print('\nTime: ', time.time()-start_time)
 		print("\n")
+
 
 if __name__ == '__main__':
 	global offset,title_offset

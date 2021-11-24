@@ -233,7 +233,8 @@ def merge_files(fileCount):
 
 
 def main():
-	file_count = int(open('./data/file_count.txt','r').read())
+	with open('./data/file_count.txt','r') as f:
+		file_count = int(f.read())
 	merge_files(file_count)
 
 

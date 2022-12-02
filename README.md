@@ -1,5 +1,12 @@
+
 # Wikipedia Search Engine
+<p align="center">
+<img src="https://user-images.githubusercontent.com/19518507/205266107-f64481a2-26ce-4853-84b1-dd1be572b97a.png" height="400">
+</p>
+
+
 Search Engine for Wikipedia dump (~75 GB).
+
 
 *Search time <5s tested on Ubuntu 18 with 8 GB RAM and Intel i5 processor*
 

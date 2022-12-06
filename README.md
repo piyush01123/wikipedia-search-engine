@@ -27,15 +27,16 @@ mkdir -p data
 ### Indexing
 **Run indexer**
 ```
-python indexer.py https://dumps.wikimedia.org/enwiki/20210720/enwiki-20210720-pages-articles-multistream.xml
+python indexer.py enwiki-20210720-pages-articles-multistream.xml
 ```
 This will create files like `data/index0.txt`, `data/index1.txt` and so on.
 Each of these are posting lists. They contain text in the form
 ```
-[word] d[doc ID] t[freq_t] b[freq_b] i[freq_i] c[freq_c] l[freq_l] r[freq_r]
+[word] d[doc ID] t[freq_t] b[freq_b] i[freq_i] c[freq_c] l[freq_l] r[freq_r] d[doc ID2] t[freq_t] b[freq_b] i[freq_i] c[freq_c] l[freq_l] r[freq_r] 
 ```
 where each symbol represents:
 ```
+doc ID: document ID (Each article has an ID which can be created as a counter while parsing the xml file)
 word: English word that this posting list represents
 freq_t: Frequency of word in Title section
 freq_b: Frequency of word in Body section
